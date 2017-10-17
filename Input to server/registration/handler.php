@@ -10,7 +10,20 @@
   $month = $_REQUEST['month'];
   $year = $_REQUEST['year'];
 
-  $validInput = true;
+  $validName1 = true;
+  $validName2 = true;
+  $validName3 = true;
+  $validMail = true;
+  $validUsername1 = true;
+  $validUsername2 = true;
+  $validPassword1 = true;
+  $validPassword2 = true;
+  $validPassword3 = true;
+  $validGender = true;
+  $validDate = true;
+
+  // ---------------------------------------------------------------------------
+  // FUNCTIONS
 
   // checks for at least two words name
   function checkTwoWordsName($name){
@@ -63,15 +76,23 @@
 
     $domain = ltrim(stristr($email, '@'), '@');
 
-    $temp = explode(".", $domain);
+    // $temp = explode(".", $domain);
+    //
+    // if(count($temp) > 1){
+    //
+    //   echo "<br/>ERROR!!! Insert your mail address properly.";
+    //   return $validInput = false;
+    // }
+    //
+    // return $validInput = true;
 
-    if(strlen($temp) > 1){
+    if(strrpos($domain, '.com')){
 
-      echo "<br/>ERROR!!! Insert your mail address properly.";
-      return $validInput = false;
+      return $validInput = true;
     }
 
-    return $validInput = true;
+    echo "<br/>ERROR!!! Insert your mail address properly.";
+    return $validInput = false;
   }
 
   // checks for alpha numeric characters for valid name input
@@ -136,7 +157,7 @@
   }
 
   // checks if the password and confirm password are same or not
-  function confirmPassword($confirm){
+  function confirmPassword($confirm, $password){
 
     if($confirm != $password){
 
@@ -226,5 +247,44 @@
     }
 
     return $validInput = true;
+  }
+
+  // ---------------------------------------------------------------------------
+
+  if(empty($name) || empty($email) || empty($username) || empty($password) ||
+  empty($confirm) || empty($gender) || empty($day) || empty($month) || empty($year)){
+
+    echo "Error!!! Empty Input.";
+    $validInput = false;
+  }else{
+
+    $validName1 = checkTwoWordsName($name);
+
+    $validName2 = startWithALetter($name);
+
+    $validName3 = checkValidName($name);
+
+    $validMail = checkValidMail($email);
+
+    $validUsername1 = checkInvalidUserNameCharacters($username);
+
+    $validUsername2 = checkMinimumUserNameCharacters($username);
+
+    $validPassword1 = checkMinimumPasswordCharacters($password);
+
+    $validPassword2 = checkForSpecialCharacters($password);
+
+    $validPassword3 = confirmPassword($confirm, $password);
+
+    $validGender = chooseGender($gender);
+
+    $validDate = checkValidDate($day, $month, $year);
+
+    if($validName1 || $validName2 || $validName3 || $validMail || $validUsername1
+   || $validUsername2 || $validPassword1 || $validPassword2 || $validPassword3
+   || $validGender || $validDate){
+
+      echo "<br>Correct !!!";
+    }
   }
 ?>
