@@ -17,7 +17,7 @@
 
     if(str_word_count($name) == 1){
 
-      echo '<br/>ERROR!!! Name needs to be atleast 2 words.';
+      echo "<br/>ERROR!!! Name needs to be atleast 2 words.";
       return $validInput = false;
     }
 
@@ -32,7 +32,7 @@
 
     }else {
 
-      echo '<br/>ERROR!!! First character of the name needs to be a letter.';
+      echo "<br/>ERROR!!! First character of the name needs to be a letter.";
       return $validInput = false;
     }
 
@@ -50,9 +50,25 @@
 
       }else{
 
-        echo '<br/>ERROR!!! Name can contain only a-z, A-Z, period(.) and dash(-).';
+        echo "<br/>ERROR!!! Name can contain only a-z, A-Z, period(.) and dash(-).";
         return $validInput = false;
       }
+    }
+
+    return $validInput = true;
+  }
+
+  // checks if the mail is vali or not
+  function checkValidMail($email){
+
+    $domain = ltrim(stristr($email, '@'), '@');
+
+    $temp = explode(".", $domain);
+
+    if(strlen($temp) > 1){
+
+      echo "<br/>ERROR!!! Insert your mail address properly.";
+      return $validInput = false;
     }
 
     return $validInput = true;
@@ -90,5 +106,125 @@
 
       return $validInput = true;
     }
+  }
+
+  // checks if the password contains 8 characters or not
+  function checkMinimumPasswordCharacters($password){
+
+    if((strlen($password) < 8) && (strlen($password) > 0)){
+
+      echo "<br>Error!!! Password should be atleast 8 characters.";
+      return $validInput = false;
+    }else {
+
+      return $validInput = true;
+    }
+  }
+
+  // checks if the password contains special characters or not
+  function checkForSpecialCharacters($password){
+
+    if(strpos($password, '@') || strpos($password, '#') || strpos($password, '$')
+    || strpos($password, '%')){
+
+      return $validInput = true;
+    }else{
+
+      echo "<br>Error!!! Password must contain atleas 1 special characters.";
+      return $validInput = false;
+    }
+  }
+
+  // checks if the password and confirm password are same or not
+  function confirmPassword($confirm){
+
+    if($confirm != $password){
+
+      echo "<br>Error!!! Password doesn't matches. Retype your password propery.";
+      return $validInput = false;
+    }
+
+    return $validInput = true;
+  }
+
+  // checks if the gender is choosen or not
+  function chooseGender($gender){
+
+    if(!isset($gender)){
+
+      echo "Error!!! Choose your gender properly.";
+      return $validInput = false;
+    }
+
+    return $validInput = true;
+  }
+
+  // checks if the date of birth is given ccorrectly or not
+  function checkValidDate($day, $month, $year){
+
+    $invalid_day = '<br/>ERROR!!! Invalid Day. Insert a proper date.';
+    $invalid_month = '<br/>ERROR!!! Invalid Month. Insert a proper date.';
+    $invalid_year = '<br/>ERROR!!! Invalid Year. Insert a proper date.';
+    $leap_year = '<br/>ERROR!!! The year is a leap year. Insert a day between (1-29).';
+
+    $isLeapYear = false;
+
+    // chcking for valid month
+    if(($month < 0) || ($month > 12)){
+
+      echo $invalid_month;
+      return $validInput = false;
+    }
+
+    // checking for valid year
+    if(($year < 1953) || ($year > 1998)){
+
+      echo $invalid_year;
+      return $validInput = false;
+    }
+
+    // leap year calculation
+    if($year%4 == 0){
+
+      if($year%100 == 0){
+
+        if($year%400 == 0){
+
+          $isLeapYear = true;
+        }
+      }else {
+
+        $isLeapYear = true;
+      }
+    }
+
+    // checking for leap year
+    if($isLeapYear){
+
+      if($month == 2){
+
+        if(($day < 0) || ($day > 29)){
+
+          echo $leap_year;
+          return $validInput = false;
+        }
+      }else{
+
+        if(($day < 0) || ($day > 32)){
+
+          echo $invalid_day;
+          return $validInput = false;
+        }
+      }
+    }else{
+
+      if(($day < 0) || ($day > 32)){
+
+        echo $invalid_day;
+        return $validInput = false;
+      }
+    }
+
+    return $validInput = true;
   }
 ?>
