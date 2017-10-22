@@ -31,10 +31,10 @@
     if(str_word_count($name) == 1){
 
       echo "<br/>ERROR!!! Name needs to be atleast 2 words.";
-      return $validInput = false;
+      return $validName1 = false;
     }
 
-    return $validInput = true;
+    return $validName1 = true;
   }
 
   // checks if the first character of the name is a letter or not
@@ -46,10 +46,10 @@
     }else {
 
       echo "<br/>ERROR!!! First character of the name needs to be a letter.";
-      return $validInput = false;
+      return $validName2 = false;
     }
 
-    return $validInput = true;
+    return $validName2 = true;
   }
 
   // checks if the name input contains valid characters or not
@@ -64,11 +64,11 @@
       }else{
 
         echo "<br/>ERROR!!! Name can contain only a-z, A-Z, period(.) and dash(-).";
-        return $validInput = false;
+        return $validName3 = false;
       }
     }
 
-    return $validInput = true;
+    return $validName3 = true;
   }
 
   // checks if the mail is vali or not
@@ -88,11 +88,11 @@
 
     if(strrpos($domain, '.com')){
 
-      return $validInput = true;
+      return $validMail = true;
     }
 
     echo "<br/>ERROR!!! Insert your mail address properly.";
-    return $validInput = false;
+    return $validMail = false;
   }
 
   // checks for alpha numeric characters for valid name input
@@ -109,11 +109,11 @@
 
         echo "<br>Error!!! Username can contain only alpha numeric characters, period(.),
         dash(-) or underscore(_) only.";
-        return $validInput = false;
+        return $validUsername1 = false;
       }
     }
 
-    return $validInput = true;
+    return $validUsername1 = true;
   }
 
   // checks for at least 2 characters name
@@ -122,10 +122,10 @@
     if(strlen($username) == 1){
 
       echo "<br>Error!!! Username should be atleast 2 characters.";
-      return $validInput = false;
+      return $validUsername2 = false;
     }else {
 
-      return $validInput = true;
+      return $validUsername2 = true;
     }
   }
 
@@ -135,10 +135,10 @@
     if((strlen($password) < 8) && (strlen($password) > 0)){
 
       echo "<br>Error!!! Password should be atleast 8 characters.";
-      return $validInput = false;
+      return $validPassword1 = false;
     }else {
 
-      return $validInput = true;
+      return $validPassword1 = true;
     }
   }
 
@@ -148,11 +148,11 @@
     if(strpos($password, '@') || strpos($password, '#') || strpos($password, '$')
     || strpos($password, '%')){
 
-      return $validInput = true;
+      return $validPassword2 = true;
     }else{
 
       echo "<br>Error!!! Password must contain atleas 1 special characters.";
-      return $validInput = false;
+      return $validPassword3 = false;
     }
   }
 
@@ -162,10 +162,10 @@
     if($confirm != $password){
 
       echo "<br>Error!!! Password doesn't matches. Retype your password propery.";
-      return $validInput = false;
+      return $validPassword3 = false;
     }
 
-    return $validInput = true;
+    return $validPassword3 = true;
   }
 
   // checks if the gender is choosen or not
@@ -174,10 +174,10 @@
     if(!isset($gender)){
 
       echo "Error!!! Choose your gender properly.";
-      return $validInput = false;
+      return $validGender = false;
     }
 
-    return $validInput = true;
+    return $validGender = true;
   }
 
   // checks if the date of birth is given ccorrectly or not
@@ -194,14 +194,14 @@
     if(($month < 0) || ($month > 12)){
 
       echo $invalid_month;
-      return $validInput = false;
+      return $validDate = false;
     }
 
     // checking for valid year
     if(($year < 1953) || ($year > 1998)){
 
       echo $invalid_year;
-      return $validInput = false;
+      return $validDate = false;
     }
 
     // leap year calculation
@@ -227,14 +227,14 @@
         if(($day < 0) || ($day > 29)){
 
           echo $leap_year;
-          return $validInput = false;
+          return $validDate = false;
         }
       }else{
 
         if(($day < 0) || ($day > 32)){
 
           echo $invalid_day;
-          return $validInput = false;
+          return $validDate = false;
         }
       }
     }else{
@@ -242,11 +242,11 @@
       if(($day < 0) || ($day > 32)){
 
         echo $invalid_day;
-        return $validInput = false;
+        return $validDate = false;
       }
     }
 
-    return $validInput = true;
+    return $validDate = true;
   }
 
   // ---------------------------------------------------------------------------
