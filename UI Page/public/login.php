@@ -1,16 +1,33 @@
 <?php
-  $name = $_REQUEST['name'];
+
+  session_start();
+
+  $userList = $_SESSION['userList'];
+
+  if($userList['username'] == $_REQUEST['username']){
+
+    if($userList['password'] == $_REQUEST['password']){
+
+      header("Location: ../private/dashboard.html");
+    }
+  }
+
+  var_dump($_SESSION);
+
+  // ---------------------------------------------------------------------------
+
+  $username = $_REQUEST['username'];
   $password = $_REQUEST['password'];
 
   $validInput = true;
 
-  function checkInvalidCharacters($name){
+  function checkInvalidCharacters($username){
 
-    for($i=0; $i<strlen($name); $i++){
+    for($i=0; $i<strlen($username); $i++){
 
-      if(($name[$i] >= 'A' && $name[$i] <= 'Z') || ($name[$i] >= 'a' && $name[$i] <= 'z') ||
-      ($name[$i] >= 0 && $name[$i] <= 9) || ($name[$i] == ".") || ($name[$i] == "-") ||
-      ($name[$i] == "_") || ($name[$i] == " ")){
+      if(($username[$i] >= 'A' && $username[$i] <= 'Z') || ($username[$i] >= 'a' && $username[$i] <= 'z') ||
+      ($username[$i] >= 0 && $username[$i] <= 9) || ($username[$i] == ".") || ($username[$i] == "-") ||
+      ($username[$i] == "_") || ($username[$i] == " ")){
 
 
       }else{
@@ -24,9 +41,9 @@
     return $validInput = true;
   }
 
-  function checkMinimumNameCharacters($name){
+  function checkMinimumNameCharacters($username){
 
-    if(strlen($name) == 1){
+    if(strlen($username) == 1){
 
       echo "<br>Error!!! Name should be atleast 2 characters.";
       return $validInput = false;
@@ -61,17 +78,17 @@
     }
   }
 
-  if(empty($name) || empty($password)){
+  if(empty($username) || empty($password)){
 
     $validInput = false;
     echo "<br>Error!!! Empty input. Insert your name and pasword properly.";
   }else{
 
     // checking for valid characters in name
-    $validInput = checkInvalidCharacters($name);
+    $validInput = checkInvalidCharacters($username);
 
     // checking for atleast 2 characters name
-    $validInput = checkMinimumNameCharacters($name);
+    $validInput = checkMinimumNameCharacters($username);
 
     // checking for atleast 8 characters password
     $validInput = checkMinimumPasswordCharacters($password);
@@ -82,7 +99,7 @@
     if($validInput){
 
       echo "<br>Correct.";
-      echo "<br>Name: $name";
+      echo "<br>Name: $username";
       echo "<br>Password: $password";
     }
   }

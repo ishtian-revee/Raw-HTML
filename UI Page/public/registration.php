@@ -1,5 +1,29 @@
 <?php
 
+  session_start();
+
+  if(!isset($_SESSION['userList'])){
+
+    $_SESSION['userList'] = array();
+  }
+
+  $user['name'] = $_REQUEST['name'];
+  $user['email'] = $_REQUEST['email'];
+  $user['username'] = $_REQUEST['username'];
+  $user['password'] = $_REQUEST['password'];
+  $user['confirm'] = $_REQUEST['confirm'];
+  $user['gender'] = $_REQUEST['gender'];
+  $user['day'] = $_REQUEST['day'];
+  $user['month'] = $_REQUEST['month'];
+  $user['year'] = $_REQUEST['year'];
+
+  $size = count($_SESSION['userList']);
+  $_SESSION['userList'][$size] = $user;
+
+  var_dump($_SESSION);
+
+  // ---------------------------------------------------------------------------
+
   $name = $_REQUEST['name'];
   $email = $_REQUEST['email'];
   $username = $_REQUEST['username'];
@@ -151,7 +175,7 @@
       return $validPassword2 = true;
     }else{
 
-      echo "<br>Error!!! Password must contain atleas 1 special characters.";
+      echo "<br>Error!!! Password must contain atleast 1 special characters.";
       return $validPassword3 = false;
     }
   }
