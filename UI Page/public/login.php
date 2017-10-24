@@ -4,11 +4,14 @@
 
   $userList = $_SESSION['userList'];
 
-  if($userList['username'] == $_REQUEST['username']){
+  foreach($userList as $user){
 
-    if($userList['password'] == $_REQUEST['password']){
+    if($user['username'] == $_REQUEST['username']){
 
-      header("Location: ../private/dashboard.html");
+      if($user['password'] == $_REQUEST['password']){
+
+        header("Location: ../private/dashboard.html");
+      }
     }
   }
 
