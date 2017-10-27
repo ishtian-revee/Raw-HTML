@@ -2,28 +2,6 @@
 
   session_start();
 
-  if(!isset($_SESSION['userList'])){
-
-    $_SESSION['userList'] = array();
-  }
-
-  $user['name'] = $_REQUEST['name'];
-  $user['email'] = $_REQUEST['email'];
-  $user['username'] = $_REQUEST['username'];
-  $user['password'] = $_REQUEST['password'];
-  $user['confirm'] = $_REQUEST['confirm'];
-  $user['gender'] = $_REQUEST['gender'];
-  $user['day'] = $_REQUEST['day'];
-  $user['month'] = $_REQUEST['month'];
-  $user['year'] = $_REQUEST['year'];
-
-  $size = count($_SESSION['userList']);
-  $_SESSION['userList'][$size] = $user;
-
-  var_dump($_SESSION);
-
-  // ---------------------------------------------------------------------------
-
   $name = $_REQUEST['name'];
   $email = $_REQUEST['email'];
   $username = $_REQUEST['username'];
@@ -33,6 +11,46 @@
   $day = $_REQUEST['day'];
   $month = $_REQUEST['month'];
   $year = $_REQUEST['year'];
+
+  if(!isset($_SESSION['userList'])){
+
+    $_SESSION['userList'] = array();
+  }
+
+  $user['name'] = $name;
+  $user['email'] = $email;
+  $user['username'] = $username;
+  $user['password'] = $password;
+  $user['confirm'] = $confirm;
+  $user['gender'] = $gender;
+  $user['day'] = $day;
+  $user['month'] = $month;
+  $user['year'] = $year;
+
+  if($username == 'admin'){
+
+    $user['isAdmin'] = true;
+  }else{
+
+    $user['isAdmin'] = false;
+  }
+
+  $size = count($_SESSION['userList']);
+  $_SESSION['userList'][$size] = $user;
+
+  var_dump($_SESSION);
+
+  // ---------------------------------------------------------------------------
+
+  // $name = $_REQUEST['name'];
+  // $email = $_REQUEST['email'];
+  // $username = $_REQUEST['username'];
+  // $password = $_REQUEST['password'];
+  // $confirm = $_REQUEST['confirm'];
+  // $gender = $_REQUEST['gender'];
+  // $day = $_REQUEST['day'];
+  // $month = $_REQUEST['month'];
+  // $year = $_REQUEST['year'];
 
   $validName1 = true;
   $validName2 = true;
@@ -175,7 +193,7 @@
       return $validPassword2 = true;
     }else{
 
-      echo "<br>Error!!! Password must contain atleast 1 special characters.";
+      echo "<br>Error!!! Password must contain atleas 1 special characters.";
       return $validPassword3 = false;
     }
   }

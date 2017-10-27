@@ -3,14 +3,42 @@
   session_start();
 
   $userList = $_SESSION['userList'];
+  $username = $_REQUEST['username'];
+  $password = $_REQUEST['password'];
 
+  // previous code
+
+  // foreach($userList as $user){
+  //
+  //   if(($user['username'] == $username) and ($username == 'admin')){
+  //
+  //     if($user['password'] == $password){
+  //
+  //       header("Location: ../private/admin.html");
+  //     }
+  //   }else{
+  //
+  //     if($user['password'] == $_REQUEST['password']){
+  //
+  //       header("Location: ../private/dashboard.html");
+  //     }
+  //   }
+  // }
+
+  // authentication and authorization
   foreach($userList as $user){
 
-    if($user['username'] == $_REQUEST['username']){
+    if(($user['username'] == $username) && ($user['isAdmin'])){
 
-      if($user['password'] == $_REQUEST['password']){
+      if($user['password'] == $password){
 
-        header("Location: ../private/dashboard.html");
+        header("location: ../private/admin.html");
+      }
+    }else{
+
+      if($user['password'] == $password){
+
+        header("location: ../private/dashboard.html");
       }
     }
   }
@@ -18,9 +46,6 @@
   var_dump($_SESSION);
 
   // ---------------------------------------------------------------------------
-
-  $username = $_REQUEST['username'];
-  $password = $_REQUEST['password'];
 
   $validInput = true;
 
