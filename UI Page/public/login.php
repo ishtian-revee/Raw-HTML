@@ -10,15 +10,9 @@
 
   // foreach($userList as $user){
   //
-  //   if(($user['username'] == $username) and ($username == 'admin')){
+  //   if($user['username'] == $username){
   //
   //     if($user['password'] == $password){
-  //
-  //       header("Location: ../private/admin.html");
-  //     }
-  //   }else{
-  //
-  //     if($user['password'] == $_REQUEST['password']){
   //
   //       header("Location: ../private/dashboard.html");
   //     }
