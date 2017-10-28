@@ -322,9 +322,9 @@
 
     $validDate = checkValidDate($day, $month, $year);
 
-    if($validName1 || $validName2 || $validName3 || $validMail || $validUsername1
-   || $validUsername2 || $validPassword1 || $validPassword2 || $validPassword3
-   || $validGender || $validDate){
+    if($validName1 && $validName2 && $validName3 && $validMail && $validUsername1
+   && $validUsername2 && $validPassword1 && $validPassword2 && $validPassword3
+   && $validGender && $validDate){
 
       echo "<br>Correct !!!";
     }
