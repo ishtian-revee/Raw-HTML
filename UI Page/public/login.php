@@ -49,7 +49,14 @@
 
       if($user['password'] == $password){
 
-        $_SESSION['username'] = $username;        // logged in
+        $_SESSION['username'] = $user['username'];          // logged in
+        $_SESSION['name'] = $user['name'];
+        $_SESSION['email'] = $user['email'];
+        $_SESSION['gender'] = $user['gender'];
+        $_SESSION['day'] = $user['day'];
+        $_SESSION['month'] = $user['month'];
+        $_SESSION['year'] = $user['year'];
+
         header("location: ../private/admin.php");
       }else{
 
@@ -60,7 +67,14 @@
 
       if($user['password'] == $password){
 
-        $_SESSION['username'] = $username;        // logged in
+        $_SESSION['username'] = $user['username'];          // logged in
+        $_SESSION['name'] = $user['name'];
+        $_SESSION['email'] = $user['email'];
+        $_SESSION['gender'] = $user['gender'];
+        $_SESSION['day'] = $user['day'];
+        $_SESSION['month'] = $user['month'];
+        $_SESSION['year'] = $user['year'];
+
         header("location: ../private/dashboard.php");
       }else{
 
