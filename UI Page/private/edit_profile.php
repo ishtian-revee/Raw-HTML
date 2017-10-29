@@ -65,7 +65,7 @@
                             </td>
 
                             <td width="60%" valign="center">
-                              <input type="text" name="name">
+                              <input type="text" name="name" value="<?php echo $_SESSION['name']; ?>">
                             </td>
                           </tr>
 
@@ -79,7 +79,7 @@
                             </td>
 
                             <td width="35%" valign="center">
-                              <input name="email" type="email"/>
+                              <input name="email" type="email" value="<?php echo $_SESSION['email']; ?>"/>
                       				<image src="../res/email.png" alt="../res/email.png" width="15" title="hint: sample@example.com"/>
                             </td>
                           </tr>
@@ -94,13 +94,13 @@
                             </td>
 
                             <td width="35%" valign="center">
-                              <input type="radio" name="gender" value="m">
+                              <input type="radio" name="gender" value="Male">
                               <label><font face="calibri" color="#444444" size="4">Male</font></label>
 
-                              <input type="radio" name="gender" value="f">
+                              <input type="radio" name="gender" value="Female">
                               <label><font face="calibri" color="#444444" size="4">Female</font></label>
 
-                              <input type="radio" name="gender" value="o">
+                              <input type="radio" name="gender" value="Other">
                               <label><font face="calibri" color="#444444" size="4">Other</font></label>
                             </td>
                           </tr>
@@ -115,11 +115,11 @@
                             </td>
 
                             <td width="35%" valign="center">
-                              <input type="number" name="day">
+                              <input type="number" name="day" value="<?php echo $_SESSION['day']; ?>">
                               <label><font face="calibri" color="#444444" size="4">/</font></label>
-                              <input type="number" name="month">
+                              <input type="number" name="month" value="<?php echo $_SESSION['month']; ?>">
                               <label><font face="calibri" color="#444444" size="4">/</font></label>
-                              <input type="number" name="year">
+                              <input type="number" name="year" value="<?php echo $_SESSION['year']; ?>">
                               <label>
                                 <font face="calibri" color="#444444" size="4"><i>(dd/mm/yyyy)</i></font>
                               </label>

@@ -4,6 +4,20 @@
 
   if(isset($_SESSION['username'])){ ?>
 
+    <?php
+    	// var_dump($GLOBALS);
+    	// $src=$_FILES['uploaded_file']['tmp_name'];
+    	// $dest = $_FILES['uploaded_file']['name'];
+    	//
+    	// var_dump($src, $dest);
+    	// move_uploaded_file($src, $dest);
+    ?>
+
+    <!-- <form method="post" action="upload_handler.php" enctype="multipart/form-data">
+    	<input type="file" name="uploaded_file" />
+    	<button>Submit</button>
+    </form> -->
+
     <!-- html source -->
 
     <!DOCTYPE html>

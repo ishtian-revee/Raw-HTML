@@ -22,7 +22,7 @@
               <label><font face="calibri" color="#888888" size="4">Logged in as </font></label>
             </td>
 
-            <td width="35" align="center" valign="center"><a href="../private/view_profile.html">
+            <td width="35" align="center" valign="center"><a href="../private/view_profile.php">
               <h3><font face="calibri" color="#444444"><?php echo $_SESSION['username']; ?></font></h3>
             </a></td>
 
@@ -64,13 +64,13 @@
                           </td>
 
                           <td width="35%" valign="top">
-                            <h3><font face="calibri" color="#888888"><?php echo $_SESSION['username']; ?></font></h3>
+                            <h3><font face="calibri" color="#888888"><?php echo $_SESSION['name']; ?></font></h3>
                           </td>
 
                           <td width="35%" align="center" valign="center" rowspan="7">
                             <img src="../res/bob1.png" alt="../res/bob1.png" width="180">
                             <br>
-                            <a href="../private/change_picture.html"><h4><font face="calibri" color="#888888">Change</font></h4></a>
+                            <a href="../private/change_picture.php"><h4><font face="calibri" color="#888888">Change</font></h4></a>
                           </td>
                         </tr>
 
