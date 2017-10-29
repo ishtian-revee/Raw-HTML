@@ -49,7 +49,7 @@
                       <li><a href="../private/edit_profile.php"><h4><font face="calibri" color="#888888">Edit Profile</font></h4></a></li>
                       <li><a href="../private/change_picture.php"><h4><font face="calibri" color="#444444">Change Profile Picture</font></h4></a></li>
                       <li><a href="../private/change_password.php"><h4><font face="calibri" color="#888888">Change Password</font></h4></a></li>
-                      <li><a href="#"><h4><font face="calibri" color="#888888">Logout</font></h4></a></li>
+                      <li><a href="../private/logout.php"><h4><font face="calibri" color="#888888">Logout</font></h4></a></li>
                     </ul>
                   </td>
 
