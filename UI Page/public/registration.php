@@ -194,7 +194,7 @@
     }else{
 
       echo "<br>Error!!! Password must contain atleas 1 special characters.";
-      return $validPassword3 = false;
+      return $validPassword2 = false;
     }
   }
 
