@@ -91,6 +91,67 @@
   var_dump($_SESSION);
 
   // ---------------------------------------------------------------------------
+  // FILES CODE
+
+  // $file = fopen("info.txt", "r");
+  //
+  // // checking if the file is ended or not
+  // while(!feof($file)){
+  //
+  //   $row = fgets($file);
+  //   $data = trim(explode(",", $row));
+  //
+  //   // authentication and authorization
+  //   if($data[2] == $username && $data[8] == "admin"){
+  //
+  //     if($data[3] == $password){
+  //
+  //       $_SESSION['username'] = $data[2];          // logged in
+  //       $_SESSION['name'] = $data[0];
+  //       $_SESSION['email'] = $data[1];
+  //       $_SESSION['gender'] = $data[4];
+  //       $_SESSION['day'] = $data[5];
+  //       $_SESSION['month'] = $data[6];
+  //       $_SESSION['year'] = $data[7];
+  //
+  //       header("location: ../private/admin.php");
+  //     }else{
+  //
+  //       echo "<br>Error!!! Wrong password.";
+  //       header("refresh:4; URL = ../public/login.html");
+  //     }
+  //   }else if($data[2] == $username && $data[8] == "user"){
+  //
+  //     if($data[3] == $password){
+  //
+  //       $_SESSION['username'] = $data[2];          // logged in
+  //       $_SESSION['name'] = $data[0];
+  //       $_SESSION['email'] = $data[1];
+  //       $_SESSION['gender'] = $data[4];
+  //       $_SESSION['day'] = $data[5];
+  //       $_SESSION['month'] = $data[6];
+  //       $_SESSION['year'] = $data[7];
+  //
+  //       header("location: ../private/dashboard.php");
+  //     }else{
+  //
+  //       echo "<br>Error!!! Wrong password.";
+  //       header("refresh:4; URL = ../public/login.html");
+  //     }
+  //   }else{
+  //
+  //     echo "<br>Error!!! Wrong username.";
+  //     header("refresh:4; URL = ../public/login.html");
+  //   }
+  // }
+  //
+  // fclose($file);
+
+  // ---------------------------------------------------------------------------
+
+
+
+  // ---------------------------------------------------------------------------
 
   // previous code
   // $validInput = true;
