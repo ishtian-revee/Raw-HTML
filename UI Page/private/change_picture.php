@@ -4,20 +4,6 @@
 
   if(isset($_SESSION['username'])){ ?>
 
-    <?php
-    	// var_dump($GLOBALS);
-    	// $src=$_FILES['uploaded_file']['tmp_name'];
-    	// $dest = $_FILES['uploaded_file']['name'];
-    	//
-    	// var_dump($src, $dest);
-    	// move_uploaded_file($src, $dest);
-    ?>
-
-    <!-- <form method="post" action="upload_handler.php" enctype="multipart/form-data">
-    	<input type="file" name="uploaded_file" />
-    	<button>Submit</button>
-    </form> -->
-
     <!-- html source -->
 
     <!DOCTYPE html>
@@ -72,30 +58,32 @@
                       <fieldset>
                         <legend><h3><font face="calibri" color="#444444">Change Picture</font></h3></legend>
 
-                        <table width="100%">
-                          <tr>
-                            <td width="35%" align="left" valign="top">
-                              <img src="../res/bob1.png" alt="../res/bob1.png" width="180">
-                            </td>
-                          </tr>
+                        <form method="post" action="upload_handler.php" enctype="multipart/form-data">
+                          <table width="100%">
+                            <tr>
+                              <td width="35%" align="left" valign="top">
+                                <img src="../res/bob1.png" alt="../res/bob1.png" width="180">
+                              </td>
+                            </tr>
 
-                          <tr>
-                            <td width="30%" valign="top">
-                              <br>
-                              <input name="phpto" type="file"/>
-                            </td>
-                          </tr>
+                            <tr>
+                              <td width="30%" valign="top">
+                                <br>
+                                <input type="file" name="uploaded_file" />
+                              </td>
+                            </tr>
 
-                          <tr>
-                            <td><hr noshade="noshade"></td>
-                          </tr>
+                            <tr>
+                              <td><hr noshade="noshade"></td>
+                            </tr>
 
-                          <tr>
-                            <td width="30%" valign="center">
-                              <input type="submit" value="submit"/>
-                            </td>
-                          </tr>
-                        </table>
+                            <tr>
+                              <td width="30%" valign="center">
+                                <input type="submit" value="submit" name="submit"/>
+                              </td>
+                            </tr>
+                          </table>
+                        </form>
                       </fieldset>
                     </form>
                   </td>
