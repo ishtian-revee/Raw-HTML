@@ -12,6 +12,9 @@
   $month = $_REQUEST['month'];
   $year = $_REQUEST['year'];
 
+  // test
+  $role = "";
+
   if(!isset($_SESSION['userList'])){
 
     $_SESSION['userList'] = array();
@@ -30,9 +33,15 @@
   if($username == 'admin'){
 
     $user['isAdmin'] = true;
+
+    // test
+    $role = "admin";
   }else{
 
     $user['isAdmin'] = false;
+
+    // test
+    $role = "user";
   }
 
   $size = count($_SESSION['userList']);
@@ -44,10 +53,42 @@
   // FILES CODE
 
   $file = fopen("info.txt", "a");
-  $row = $name.",".$email.",".$username.",".$password.",".$gender.",".$day.",".$month.",".$year."\r\n";
+  $row = $name.",".$email.",".$username.",".$password.",".$gender.",".$day.",".$month.",".$year.",".$role."\r\n";
   fwrite($file, $row);
 
   fclose($file);
+  // ---------------------------------------------------------------------------
+
+  // ---------------------------------------------------------------------------
+  // XML CODE
+
+  // $xml = new DOMDocument("1.0", "UTF-8");
+  // $xml -> load("info.xml");
+  //
+  // $rootTag = $xml -> getElementsByTagName("users") -> item(0);
+  // $dataTag = $xml -> createElement("user");
+  //
+  // $nameTag = $xml->createElement("name", $name);
+	// $emailTag = $xml->createElement("email", $email);
+	// $usernameTag = $xml->createElement("username", $username);
+	// $passwordTag = $xml->createElement("password", $password);
+	// $genderTag = $xml->createElement("gender", $gender);
+  // $dayTag = $xml->createElement("day", $day);
+  // $monthTag = $xml->createElement("month", $month);
+  // $yearTag = $xml->createElement("year", $year);
+  //
+  // $dataTag -> appendChild($nameTag);
+  // $dataTag -> appendChild($emailTag);
+  // $dataTag -> appendChild($usernameTag);
+  // $dataTag -> appendChild($passwordTag);
+  // $dataTag -> appendChild($genderTag);
+  // $dataTag -> appendChild($dayTag);
+  // $dataTag -> appendChild($monthTag);
+  // $dataTag -> appendChild($yearTag);
+  //
+  // $rootTag -> appendChild($dataTag);
+  // $xml -> save("info.xml");
+
   // ---------------------------------------------------------------------------
 
   // ---------------------------------------------------------------------------
